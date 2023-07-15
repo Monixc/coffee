@@ -15,3 +15,23 @@ searchInputEl.addEventListener("blur", function () {
   searchEl.classList.remove("focused");
   searchInputEl.setAttribute("placeholder", "");
 });
+//페이지 스크롤에 따른 요소 제어
+const badgeEl = document.querySelector("header .badges");
+window.addEventListener("scroll", function () {
+  console.log(window.scrollY);
+  if (this.window.scrollY > 500) {
+    //badge 요소 숨기기
+    gsap.to(badgeEl, 0.6, {
+      opacity: 0,
+      display: "none",
+    });
+    badgeEl.style.display = "none";
+  } else {
+    //badge요소 보이기
+    gsap.to(badgeEl, 0.6, {
+      opacity: 1,
+      display: "block",
+    });
+    badgeEl.style.display = "block";
+  }
+});
