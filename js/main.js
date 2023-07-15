@@ -35,3 +35,12 @@ window.addEventListener("scroll", function () {
     badgeEl.style.display = "block";
   }
 });
+//fade in 요소 찾기
+const fadeEls = document.querySelectorAll(".visual .fade-in");
+//요소들을 하나씩 반복해서 처리
+fadeEls.forEach(function (fadeEl, index) {
+  gsap.to(fadeEl, 1, {
+    delay: (index + 1) * 0.7,
+    opacity: 1,
+  });
+});
